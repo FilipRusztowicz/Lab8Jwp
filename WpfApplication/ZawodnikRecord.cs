@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -99,6 +100,10 @@ namespace WpfApplication
         private void ZawodnikModels_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged("ZawodnikRecords");
+        }
+        public ZawodnikRecord()
+        {
+            ZawodnikRecords = new ObservableCollection<ZawodnikRecord>();
         }
     }
 }

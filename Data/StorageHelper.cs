@@ -10,7 +10,7 @@ namespace Data
     {
         private static readonly string AppFolder = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "NazwaAplikacji"
+        "ZawodnicyAplikacja"
         );
         public static string GetFilePath(string fileName)
         {

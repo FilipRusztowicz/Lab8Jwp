@@ -1,5 +1,6 @@
 ﻿using Data;
 using HTTP;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensions.Msal;
 using System.Net.Http;
 using System.Text;
@@ -23,16 +24,10 @@ namespace WpfApplication
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new ZawodnikViewModel();
+            this.DataContext = App.ServiceProvider.GetRequiredService<ZawodnikViewModel>();
         }
 
-        private async void BtnStrona_Click(object sender, RoutedEventArgs e)
-        {
-         KlientHtml klientHtml = new KlientHtml();   
-            string html = await klientHtml.PobierzStrone();   
-            HtmlOkno okno = new HtmlOkno(html);
-            okno.ShowDialog();
-        }
+        
 
         
     }
