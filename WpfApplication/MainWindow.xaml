@@ -40,6 +40,8 @@
             </Grid>
         </GroupBox>
         <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtnAi" Content="AI" Height="30" Width="80" 
+        Command="{Binding _AICommand}" Margin="5,0,10,0"/>
             <Button x:Name="BtnStrona" Content="Pobierz Stronę WWW" Height="30" Width="130"
             Command="{Binding _pobierzStroneCommand}" Margin="5,0,0,0"/>
             <Button x:Name="BtnDana" Content="Pobierz Daną WWW" Height="30" Width="130"

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    public interface IDialogService
+    public interface ILLMClient
     {
-        void PokazOkno(string html);
-        void PokazAi(object model);
+      Task<String> WyslijWiadomosc(string wiadomosc);
+
     }
 }

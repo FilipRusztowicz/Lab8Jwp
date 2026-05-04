@@ -10,5 +10,6 @@ namespace Interfaces
     {
         Task<string> PobierzStrone();
         Task<string> PobierzDana();
+      
     }
 }

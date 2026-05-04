@@ -21,6 +21,7 @@ namespace WpfApplication
         private IZawodnikRepository _repository;
         private IKlientHtml _klientHtml;
         private IDialogService _dialogService;
+        public ILLMClient _ilmKlient;
         private Zawodnik _zawodnikEntity = null;
         
         public ZawodnikRecord ZawodnikRecord { get; set; }
@@ -36,16 +37,25 @@ namespace WpfApplication
         private ICommand _deleteCommand;
         public ICommand _pobierzStroneCommand { get; }
         public ICommand _pobierzDanaCommand { get; }
+        public ICommand _AICommand { get; }
 
-        public ZawodnikViewModel(IZawodnikRepository repository , IKlientHtml klientHtml, IDialogService dialogService)
+        public void PokazAi(object obj)
+        {
+            var aiViewModel = new AIViewModel(_ilmKlient);
+            _dialogService.PokazAi(aiViewModel);
+        }
+
+        public ZawodnikViewModel(IZawodnikRepository repository , IKlientHtml klientHtml, IDialogService dialogService, ILLMClient ilmKlient)
         {
             _zawodnikEntity = new Zawodnik();
             _repository = repository;
             _klientHtml = klientHtml; 
             _dialogService = dialogService;
             ZawodnikRecord = new ZawodnikRecord();
+            _ilmKlient = _ilmKlient;
             _pobierzStroneCommand = new RelayCommand(async (o) => await ObslugaPobierzStrone());
             _pobierzDanaCommand = new RelayCommand(async (o) => await ObslugaPobierzDana());
+            _AICommand = new RelayCommand(PokazAi);
             GetAll();
         }
 
